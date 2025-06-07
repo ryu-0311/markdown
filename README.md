@@ -101,13 +101,39 @@ flutterアプリは　main関数　statelesswidget materialapp　などが階層
 
 ## Scaffoldについて
 一言でいえば「足場、骨組み」みたいなもの。
-役割
+
+~~~
+{役割}
 - appBar → 画面の上に「タイトルバー」をつける
 - body → 画面のメイン部分（テキストやボタンなど）を配置する
-- floatingActionButton → 画面の端に「丸いボタン」を追加できる
+- floatingActionButton → 画面の端に「丸いボタン」を追加できる　などなど。
+~~~
 
 
+例えば
+>Scaffold(  
+>  appBar: AppBar(  
+>   title: Text('Hello Flutter!'),  
+> ),  
+>  body: Text(  
+>    'Hello Flutter World!!!',  
+>    style: TextStyle(fontSize: 32.0),  
+>  ),  
+>)
 
+上のコードの場合だと
+>appBar: AppBar(  
+>   title: Text('Hello Flutter!'),  
+> ),  
+
+この部分ではアプリケーションバーのウイジェット（appbar）に表示をするテキストをtextインスタンスとして指定することで、アプリケーションバーにText内のものが表示されるようになっている。
+
+>  body: Text(  
+>    'Hello Flutter World!!!',  
+>    style: TextStyle(fontSize: 32.0),  
+>  ),  
+
+この部分では、
 
 
 

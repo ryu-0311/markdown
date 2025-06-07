@@ -41,31 +41,70 @@ flutterの画面は、すべてがこうしたウィジェットの組み合わ�
 # StatelessWidgetクラス
 「**StatelessWidget**」とはステート（状態を表す値）を持たないウィジェットのベースとなるクラスである。ウィジェットのクラスは、このStatelessWidgetと、ステートを持つStatefulWidgetのいずれかを継承して作成される。
 
+「***一度作ったら変わらない画面***」
+
+## Material Appクラス
+
+~~~
+return MaterialApp(  
+     title: 'Flutter Demo',
+     home: Text(
+        'Hello,Flutter World!!',
+        style: TextStyle(fontSize:32.0),
+     ),
+  ); 
+~~~
+
+**①return MaterialApp(** 
+
+　　↓
+
+flutterアプリを作るための土台を返す、画面を管理する役割を持っている。またアプリ全体の設定をする場所である。
+
+**②title: 'Flutter Demo',**
+
+　　↓　　
+
+アプリのタイトルの設定
+
+**③home: Text(**
+
+↓
+
+最初に表示する画面（home）を決める。
+
+**④   'Hello,Flutter World!!'**
+
+↓
+
+表示するテキストの内容を設定するもの。
+
+**⑤　 style: TextStyle(fontSize:32.0),**
+
+↓
+
+テキストの見た目（スタイル）を設定するもの。
 
 
-## MaterialAppクラス
+----
+・アプリの構造を確認
+---
+1 アプリケーションは、main関数として定義する。このmain関数では、runAppでウィジェットのインスタンスを実行する。
 
+2 runApp関数ではStatelesswidget継承クラスのインスタンスを引数に指定する。　　これがアプリ本体のUIとなる。
 
+3　Statelesswidgetr継承クラスにはbuildメゾットを用意する。マテリアルデザインのアプリクラスであるMaterialAppインスタンスをreturnする。
 
-## 　Scaffold AppBar 
+4　MaterialAppの引数homeに実際にアプリ内に表示するウィジェットを設定。
 
+flutterアプリは　main関数　statelesswidget materialapp　などが階層的に組み込まれた形になっている。
 
-#    ・Stateクラスの利用について
-##  StatefulWidgetについて
-
-#
-#
-#
-
-#
-#
-#
-
-
-
-
-
-
+## Scaffoldについて
+一言でいえば「足場、骨組み」みたいなもの。
+役割
+- appBar → 画面の上に「タイトルバー」をつける
+- body → 画面のメイン部分（テキストやボタンなど）を配置する
+- floatingActionButton → 画面の端に「丸いボタン」を追加できる
 
 
 
@@ -73,29 +112,7 @@ flutterの画面は、すべてがこうしたウィジェットの組み合わ�
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+　　
 
 
 

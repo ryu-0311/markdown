@@ -148,6 +148,7 @@ flutterアプリは　main関数　statelesswidget materialapp　などが階層
  
  ### |StatefulWidgetとState
  ・StatefulWidget　➡　「設計図」　画面の基本的な構造を決めるもの
+ 
  ・State         ➡「メモ帳」　変化するデータを記録する。
 
 

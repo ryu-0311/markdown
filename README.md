@@ -135,7 +135,7 @@ flutterアプリは　main関数　statelesswidget materialapp　などが階層
 
 この部分では、アプリケーションバーの下の空白エリア全体の表示を担当する「body」にtextインスタンスを組み込むことで、その部分に表示させるようになっている。
 
-![イメージ](c:\Users\ryuga\Pictures\Screenshots\69_20250607132000.png)
+![イメージ](https://cdn.discordapp.com/attachments/1374623617165557851/1380763267521183815/69_20250607132000.png?ex=68450f80&is=6843be00&hm=26b53e1b1ec79d144f7c4942c2309cf2324fb278e610a1e839fb36f6636d8714&)
 
 
 

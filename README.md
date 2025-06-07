@@ -148,8 +148,40 @@ flutterアプリは　main関数　statelesswidget materialapp　などが階層
  
  ### |StatefulWidgetとState
  ・StatefulWidget　➡　「設計図」　画面の基本的な構造を決めるもの
- 
+
  ・State         ➡「メモ帳」　変化するデータを記録する。
+
+### |StatefulWidgetクラスの基本形
+ ~~~
+ class ウィジェットクラス extends StatefulWidget{
+
+   @override
+   ステートクラス　createState() => ステートクラス();
+
+ }
+~~~
+
+### | Stateクラスの基本形
+
+~~~
+class ステートクラス　extends State<ウィジェットクラス>{
+
+ ......略......
+
+ @override
+ Widget build(BuildContext context){
+
+     ...略...
+
+ }
+
+}
+
+~~~
+
+StatefulWidgetは、ウィジェット部分（StatefulWidgetクラス）とステート部分（Stateクラス）の２つで構成される。ウィジェットクラスはStatefulWidgetクラスを継承して定義する。
+
+create State
 
 
 

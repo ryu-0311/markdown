@@ -133,7 +133,10 @@ flutterアプリは　main関数　statelesswidget materialapp　などが階層
 >    style: TextStyle(fontSize: 32.0),  
 >  ),  
 
-この部分では、
+この部分では、アプリケーションバーの下の空白エリア全体の表示を担当する「body」にtextインスタンスを組み込むことで、その部分に表示させるようになっている。
+
+![風景写真](https://example.com/image.jpg)
+
 
 
 

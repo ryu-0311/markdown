@@ -135,7 +135,21 @@ flutterアプリは　main関数　statelesswidget materialapp　などが階層
 
 この部分では、アプリケーションバーの下の空白エリア全体の表示を担当する「body」にtextインスタンスを組み込むことで、その部分に表示させるようになっている。
 
+イメージ
 ![イメージ](https://cdn.discordapp.com/attachments/1374623617165557851/1380763267521183815/69_20250607132000.png?ex=68450f80&is=6843be00&hm=26b53e1b1ec79d144f7c4942c2309cf2324fb278e610a1e839fb36f6636d8714&)
+
+赤で線を引いてある部分がアプリケーションバー
+その下の空白が「body」によっていじれる部分。
+
+# | Stateクラスの利用
+## StatefulWidgetについて
+動的に表示するものを作るのに使うのが
+***「StatefulWidget」***
+ 
+ ### |StatefulWidgetとState
+ ・StatefulWidget　➡　「設計図」　画面の基本的な構造を決めるもの
+ ・State         ➡「メモ帳」　変化するデータを記録する。
+
 
 
 

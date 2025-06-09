@@ -182,6 +182,11 @@ class ステートクラス　extends State<ウィジェットクラス>{
 StatefulWidgetは、ウィジェット部分（StatefulWidgetクラス）とステート部分（Stateクラス）の２つで構成される。ウィジェットクラスはStatefulWidgetクラスを継承して定義する。
 
 create State
+- createState メソッドは、ウィジェットの状態（ステート）を作るために使われる。
+- build メソッドは、画面を再描画するために頻繁に呼び出される。
+つまり、createState でステートを作り、build でそのステートを使ってUIを更新するという流れになります。
+
+
 
 
 

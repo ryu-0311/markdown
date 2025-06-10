@@ -293,6 +293,7 @@ Text引数に、それぞれWidget.titleとwidget.messageを指定している�
 
 ## FloatingActionButtonをクリック
 
+~~~
 import 'package:flutter/material.dart';
 
 void main() {
@@ -349,26 +350,56 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+~~~
 
+## |ステート更新とsetState
+State継承クラス内にステートの変更のための処理を用意している。
 
+~~~
+class _MyHomePageState extends State<MyHomePage> {
+  String _message = 'Hello!';
 
+  void _setMessage() {
+    setState(() {
+      _message = 'タップしました！';
+    });
+  }
+~~~
 
+このメソッドでは、「***setState***」というメソッドを実行しています。
+setStateは、ステートの更新をステートクラスに知らせる働きをします。
 
+"String _message = 'Hello!';"　　
 
+_messageという変数を作って、最初の値を"***Hello***"にしています。
+この_messageの値を変えることで、画面に表示される言葉を変更できます。
 
+~~~
+"void _setMessage() {
+    setState(() {
+      _message = 'タップしました！';
+    });
+  }"
+~~~
 
+この「_setMessage()」という関数は、ボタンが押されたときに呼ばれる。
 
+その中の「setState()」を使うことで、画面の内容を更新できる。
 
+具体的に
+---
+・_messageの内容を"タップしました！"に変更
 
-　　
+・setState()を使うことで、アプリが「新しいメッセージに変わった」と認識し画面を更新。
 
+---
 
-
-
-
-
-
-
-
-
-
+## |FloatingActionButtonクラスについて
+~~~
+ floatingActionButton: FloatingActionButton(
+        onPressed: _setMessage,
+        tooltip: 'set message.',
+        child: Icon(Icons.star),
+      ),
+~~~
+_setMessage()はどこで呼び出されているかが次のコードにつながります。

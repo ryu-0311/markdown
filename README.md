@@ -241,7 +241,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ~~~
 
-![Flutterサンプル](https://www.bing.com/images/search?view=detailV2&insightstoken=bcid_S-bP86..340IqDNk4kQV9Z-gqKCM.....0Y*ccid_5s%2Fzr%2F%2Ff&form=SBIWPA&iss=SBIUPLOADGET&sbisrc=ImgPicker&idpbck=1&selectedindex=0&id=58782110&ccid=5s%2Fzr%2F%2Ff&exph=784&expw=1500&vt=3&sim=11&cal=0&cab=1&cat=0&car=1)
+### |StatelessWidgetからStatefulWidget　コードの説明
+>final title = 'Flutterサンプル';  
+> final message = 'サンプル・メッセージ。';  
+
+「final」が指定されていることで、値が変更されない。
+
+> return MaterialApp(  
+>      title: 'Flutter Demo',  
+>     home: MyHomePage(  
+>        title: this.title,  
+>        message: this.message  
+>      ),  
+>    );
+>
+
+
+
+
+
+
+
 
 
 

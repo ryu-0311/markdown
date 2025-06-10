@@ -242,22 +242,52 @@ class _MyHomePageState extends State<MyHomePage> {
 ~~~
 
 ### |StatelessWidgetからStatefulWidget　コードの説明
->final title = 'Flutterサンプル';  
-> final message = 'サンプル・メッセージ。';  
-
+~~~
+final title = 'Flutterサンプル';  
+ final message = 'サンプル・メッセージ。';  
+~~~
 「final」が指定されていることで、値が変更されない。
+~~~
 
-> return MaterialApp(  
->      title: 'Flutter Demo',  
->     home: MyHomePage(  
->        title: this.title,  
->        message: this.message  
->      ),  
->    );
->
+ return MaterialApp(  
+      title: 'Flutter Demo',  
+     home: MyHomePage(  
+        title: this.title,  
+        message: this.message  
+      ),  
+    );
 
+~~~
+homeのMyHomePageにtitleとmessageという二つの値を用意し、this.titleとthis.messageを指定している。前のフィールドを引数に指定してMyHomePageインスタンスを作っている。
 
+このMyHomePageのクラス側は、以下のようにコンストラクタが用意されている。
+~~~
+const MyHomePage({
+    Key? key,
+    required this.title,
+    required this.message
+  }): super(key: key);
+~~~
+このクラスでも、title,messageというfinalフィールドが用意されている。引数で渡された値が、そのままthis.titleとthis.messageに代入されていることがわかります。
 
+これでMyAppで用意した値がそのままMyHomePageに渡された。
+
+### |MyHomePageから_MyHomePafeStateについて
+   次にMyHomePageに保管したtitleとmessageを使い、ステートクラスである_MyHomePageStateクラスのインスタンスを作成する部分を見てみましょう 
+
+~~~
+Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Text(
+        widget.message,
+        style: TextStyle(fontSize:32.0),
+      ),
+    );
+~~~
+
+Text引数に、それぞれWidget.titleとwidget.messageを指定している。このwidgetはStateクラスに用意されるプロパティで、このステートが設定されているウィジェットのインスタンスが代入されています。
 
 
 

@@ -418,6 +418,7 @@ floatingActionButton「フローティングアクションボタン」と呼ば
 
 |onPressed:_setMessage|
 |-|
+
 　➡　ボタンが押された時の動作の設定。   
                               
   ・ ここでは_setMessagという関数が呼ば れ、***メッセージが変わる***仕組みになっています。                    

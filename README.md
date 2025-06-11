@@ -541,6 +541,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ・titleを***クラスの中でちゃんと宣言***しないと、Flutterはそれを認識することができない。
 
+２.コンストラクタの正しい書き方
+
+・`title`を使いたいなら、クラスの中で　　　　　`final String title;`と***プロパティを明示する必要***がある。
+
+・さらに、値を渡すときは`required`をつけて、***必ず指定する***ようにする。
+　　　　　　　　　
+<div style="text-align: center;">
+<div style="font-size: 150%"> これらに注意して修正することで </div>
+</div>
+
+<div style="text-align: center;">
+<div style="font-size: 150%"> 
+↓
+</div> </div>
+
+>
+
+
+
+
 
 
 

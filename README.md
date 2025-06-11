@@ -524,9 +524,24 @@ class _MyHomePageState extends State<MyHomePage> {
 >
 >  const MyHomePage({Key? key, required this.title}) : super>(key:key);
 >
->  @override
+>  @override  
 >  _MyHomePageState createState() => _MyHomePageState();
 >}
+
+### |エラーになったと考えられる原因をいくつか紹介|
+
+>const MyHomePage({title:'Flutter Demo'}): super();  
+
+1.
+|title:'Flutter Demo'| 
+|-|
+の問題点
+
+・これはtitleに文字列'Flutter Demo'を設定しようとしているけれど、***正しくプロパティを定義していない***ため、エラーが出る。
+
+
+
+
 
 
 

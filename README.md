@@ -539,6 +539,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ・これはtitleに文字列'Flutter Demo'を設定しようとしているけれど、***正しくプロパティを定義していない***ため、エラーが出る。
 
+・titleを***クラスの中でちゃんと宣言***しないと、Flutterはそれを認識することができない。
+
 
 
 

@@ -602,7 +602,23 @@ toStringをオーバーライドし、内容をテキストにまとめて出力
 >  ];  
 >  Data _item = _data[0];
 
-Dataインスタンスを保管する_dataは、static finalにしてある。
+Dataインスタンスを保管する_dataは、static finalにしてある。後でリスト
+を改変することがないため。
+その後、_dataの最初の項目を _itemに設定している。
+
+>_item = _data[0];
+これで、起動時に最初のDataが表示されるようになります。後は、ステートを設定する_setDataで、リストからランダムにDataを取り出す処理を用意するだけになる。
+
+>void _setData() {  
+>    setState(() {  
+>      _item = (_data..shuffle()).first;  
+>    });  
+>  }
+
+ここではsetState内で（data..shuffle()).firstという形で値を取り出しています。　　shuffleは、リストの項目をランダムに入れ替えるメソッドで、firstは最初の項目のプロパティ。これにより、_dataからランダムに１つを取り出せます。
+
+
+
 
 
 

@@ -568,6 +568,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ### | Dataについて
 
+１.Dataクラスについて
+
+アプリを作る際に「名前」「年齢」などの関連のある情報をひとまとめにしたい場合がでてきます。そのような複数の情報を１つの箱にまとめ、管理するのがDataクラスです。
+
+>class Data {  
+>  int _price;  
+>  String _name;  
+>  Data(this._name, this._price) : super();
+>
+>  @override  
+>  String toString() {  
+>    return _name + ':' + _price.toString() + '円';   
+>   }  
+>}
+
+このDataクラスでは、_price _nameという二つのプロパティ（そのクラスが持っている情報・データ）を用意してあります。
+
+コンストラクタでは、引数の値をそれぞれのプロパティに設定するようにしてある。（注文された情報を、ちゃんとその人専用のデータに詰めておく作業）
+
+
 
 
 

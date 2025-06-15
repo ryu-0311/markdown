@@ -556,6 +556,7 @@ class _MyHomePageState extends State<MyHomePage> {
 ↓
 </div> </div>
 
+このコードになる。
 >class MyHomePage extends StatefulWidget {
 >  final String title;  
 >
@@ -564,6 +565,9 @@ class _MyHomePageState extends State<MyHomePage> {
 >  @override  
 >  _MyHomePageState createState() => _MyHomePageState();
 >}
+
+### | Dataについて
+
 
 
 

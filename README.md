@@ -691,6 +691,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ~~~
 
+### 　|main.dartの内容
+
+#### ◆１.MyAppクラス
+ここでは、buildメソッドでMaterialAppを作成し返す処理が用意されている。themeという値は、テーマを指定するためのもの。
+
+#### ◆２.MyHomePageクラス
+コンストラクタとcreateStateがあるだけのシンプルなクラス。
+>const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+引数の値をthis.titleに設定して、
 
 
 

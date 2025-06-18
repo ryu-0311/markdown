@@ -700,7 +700,8 @@ class _MyHomePageState extends State<MyHomePage> {
 コンストラクタとcreateStateがあるだけのシンプルなクラス。
 >const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-引数の値をthis.titleに設定して、
+引数の値をthis.titleに設定して、そのほかに、keyという値も渡されている。ウィジェットを識別するためのIDのようなもの。デフォルトでこのkeyを受け取るようになっている。
+
 
 
 

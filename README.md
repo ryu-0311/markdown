@@ -700,7 +700,20 @@ class _MyHomePageState extends State<MyHomePage> {
 コンストラクタとcreateStateがあるだけのシンプルなクラス。
 >const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-引数の値をthis.titleに設定して、そのほかに、keyという値も渡されている。ウィジェットを識別するためのIDのようなもの。デフォルトでこのkeyを受け取るようになっている。
+引数の値をthis.titleに設定して、そのほかに、keyという値も渡されている。ウィジェットを識別するためのIDのようなもの。デフォルトでこのkeyを受け取るようになっている。MyAppクラスでこのMyHomePageインスタンスを作成している部分を見ると...
+
+>const MyHomePage(title: 'Flutter Demo Home Page'),
+
+keyの値は用意されない。keyは用意しなくとも自動的に割り当てられる。実際にはこのkeyは特に使われない。
+
+#### ◆３._MyHomePageStateクラス
+ステートの処理を行う_MyHomePageStateクラスでは、_counterというフィールドを用意している。setStateでは、この値を１ずつ増やす処理を用意している。また_counterの値をText表示するのに、変わったやり方をしています。
+
+>Text(  
+>   '$_counter',  
+>....);
+
+Textに表示するテキストに、'$_counter',という値が指定されている。この値は、
 
 
 

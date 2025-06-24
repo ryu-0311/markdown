@@ -788,13 +788,67 @@ Textに表示するテキストに、'$_counter',という値が指定されて�
 参考に先ほどのソースコードを載せます。
 
 ---
-"Hello Flutter!",  
+>"Hello Flutter!",  
 >             style: TextStyle(fontSize:32.0,  
 >            color: const Color(0xff000000),  
 >            fontWeight: FontWeight.w700,  
 >            fontFamily: "Roboto"),  
 >            ),  
 ---
+
+### Colorについて
+書き方がいくつかあります。
+>color: const Color(0xff000000),
+
+引数には、６または８桁の１６進数を指定します。これで、RGB,ARGBの値を指定しています。インスタンス作成事態は、Colorではなく、const Colorとして定数扱いになっている。基本としてColorでは、インスタンス作成する際はconstを使用する。
+>Color.fromARGB(アルファ,赤,緑,青)
+
+引数にはARGBの各値を0～255の整数で指定。
+
+#### Colorsクラス
+>colors. blue
+
+colorsは、主な色の値をまとめたクラスです。個人的に一番使いやすいと感じました。
+
+### Centerによる中央揃え
+また一度例としてコードを載せます。
+
+>class _MyHomePageState extends State<MyHomePage> {  
+  @override  
+  Widget build(BuildContext context) {  
+    return Scaffold(  
+      appBar: AppBar(  
+        title: Text('App Name'),  
+      ),  
+      body:  
+      Center(  
+        child:  
+        Text(  
+          "Hello Flutter!",  
+          style: TextStyle(fontSize:32.0,  
+              color: const Color(0xff000000),   
+              fontWeight: FontWeight.w700,  
+              fontFamily: "Roboto"),  
+        ),  
+      ),  
+    );  
+  }  
+>}  
+
+Centerクラスの基本形は
+
+>Center(  
+>   child:....ウイジェット....  
+>)
+
+childという値が用意されている。ここに配置するウイジェットを用意します。
+
+## Containerクラスについて
+Centerは、中央に
+
+
+
+
 
 
 

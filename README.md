@@ -722,6 +722,69 @@ Textに表示するテキストに、'$_counter',という値が指定されて�
 
 ここに必要なウィジェットをドラッグ＆ドロップして配置し下にある「source vode」タブをクリックして表示を切り替えれば、そのレイアウトのソースコードをコピーすることができます。
 
+### textを配置
+
+ソースコード
+>import 'package:flutter/material.dart';
+>
+>void main() {  
+>  runApp(MyApp());  
+>}  
+>class MyApp extends StatelessWidget {  
+>  
+>  @override  
+>  Widget build(BuildContext context) {  
+>    return MaterialApp(  
+>      title: 'Generated App',  
+>      theme: ThemeData(  
+>        primarySwatch: Colors.blue,    
+>        primaryColor: const Color(0xff2196f3),  
+>        canvasColor: const Color(0xffafafa),  
+>      ),  
+>      home: MyHomePage(),  
+>    );  
+>  }  
+>}  
+>
+>class MyHomePage extends StatefulWidget {  
+>  MyHomePage({Key? key}) : super(key: key);  
+>  @override  
+>  _MyHomePageState createState() => _MyHomePageState();  
+>}  
+>
+>class _MyHomePageState extends State<MyHomePage> {  
+>    @override  
+>    Widget build(BuildContext context) {  
+>      return Scaffold(  
+>        appBar: AppBar(  
+>          title: Text('App Name'),  
+>          ),  
+>        body:  
+>          Text(  
+>          "Hello Flutter!",  
+>            style: TextStyle(fontSize:32.0,  
+>            color: const Color(0xff000000),  
+>            fontWeight: FontWeight.w700,  
+>            fontFamily: "Roboto"),  
+>            ),  
+>      );  
+>    }  
+>}  
+
+#### テキストスタイルについて
+　レイアウトに入る前に、テキストの表示に関する機能についてです。
+テキストのスタイルは、Textウィジェットを作成する際、styleという値を使って設定する。
+この値は「TextStyle」というクラスとして用意されている。
+
+| fontSize | fontWeight | fontFamily |
+|-----|-----|-----|
+|フォントサイズ。double値で指定|フォントの太さ。|テキスト（String）で指定|
+
+| fontStyle |color |
+|-----|-----|
+|FontStyle列挙型のnormal,italicという値で指定|colorクラスで指定|
+
+
 
 
 

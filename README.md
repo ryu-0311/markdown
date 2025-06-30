@@ -905,7 +905,7 @@ fromLTRBは、左・上・右・下の順に余白幅を数値で指定します
 
 ## 2-4複数ウィジェットの配置
 
-### Columnを使う
+## Columnを使う
 ここまで使ったコンテナ型のウィジェットは、すべて「１つのウィジェットだけ」を組み込めるようになっていた。しかし、実際のデザインでは、一つの画面内に複数のUI部品が配置されます。
 
 これには、複数のウィジェットを組み込めるコンテナを利用する必要がある。こうしたコンテナは、レイアウトの方式に応じて何種類か用意されている。
@@ -913,6 +913,53 @@ fromLTRBは、左・上・右・下の順に余白幅を数値で指定します
 最初に取り上げるのが***Colum***というウィジェットです。
 
 簡単に説明すると、複数のウィジェットを「**縦**」に並べて配置するもの。
+
+### |Columnの基本形
+
+>Column(  
+    mainAxisAlignment: [MainAxisAlignment],  
+    mainAxisSize: [MainAxisSize],  
+    crossAxisAlignment: [CrossAxisAlignment],  
+    children: <Widget>[...リスト...]  
+>)  
+
+色んな値が用意されています。
+
+childrenというのが、Columnに組み込まれるウィジェットを用意するところです。これはウィジェットのインスタンスをリストにまとめたものを指定します。Columnは、このchildrenのリストから順にウィジェットを表示していきます。リストの並び順が変われば、表示されるウィジェットの順番も変わります。
+
+
+## Rowを使う
+
+Rowは複数のウィジェットを「**横**」に並べるものです。
+
+### Rowの基本形
+
+~~~
+Row(　　　　　　
+  mainAxisAlignment: [MainAxisAlignment],
+  mainAxisSize: [MainAxisSize],
+  crossAxisAlignment: [CrossAxisAlignment],　　　　
+  children: <Widget>[...リスト...]　　　　　　　　　　　
+)
+~~~
+
+見ての通りColumnとほぼ一緒です。なのでセットで覚えるといいらしい。
+
+### Main AXisとCross Axis
+
+| Main Axis | Cross Axis |
+| ---------- | ------- |
+| ウィジェットが順に並ぶ方向。Columnは縦、Rowは横　| 並んだウイジェットと交差する方向。　Columnなら横方向、Rowなら縦方向。 |
+
+このように、ColumnやRowでは、方向を「縦・横」ではなく、「ウィジェットが並ぶ方向、それに交差する方向」として考える。こうすることで、ColumnやRowのように、並ぶ向きが異なるものでも同じ考え方でレイアウトを作成できるようになっています。
+
+# 3－1　ボタン・ウィジェット
+
+## TextButtonについて
+
+
+
+
 
 
 

@@ -1003,13 +1003,26 @@ Paddingとは**余白**を作成する、表示させるためのコンテナで
 ## ElevatedButton・IconButton について
 つぎにTextButtonと同じ働きをし、表示方法が少し違うものを軽く書いておきます。
 
-- Elebatedbutton
+***- Elebatedbutton***
 
 「ボタンが**立体的**に表示されます。」
 
-- IconButton
+***- IconButton***
 
 「その名の通りアイコンをクリックできるよう表示されます。」
+
+## FloatingActionButtonについて
+アイコン表示するボタンは、すでに「FloatingActionButton」を利用していた。これは基本的に画面の右下にあります。ですが普通のボタンとしてウィジェットを組み込んで使うこともできます。
+~~~
+FloatingActionButton(
+  child: Icon(Icons.android),
+  onPressed: buttonPressed
+),
+~~~
+こうすることで普通のボタンとしても機能しますが、やはり右下にある方が一番利用しやすいことがわかりました。
+
+## RawMaterialButtonについて
+
 
 
 

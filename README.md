@@ -957,6 +957,60 @@ Row(　　　　　　
 
 ## TextButtonについて
 
+「TextButton」は特にUIの外観なども持たない、平面のボタンです。基本形は次のようになります。
+
+>TextButton(key:null,  
+>   onPressed: 関数,  
+>   child: ウィジェット  
+>)
+
+onPressedとは、このTextButtonをクリックした際に実行される処理を指定するためのもの。ここは直接関数を記述することも可能です。
+
+childは内部に組み込むウィジェットです。TextButtonは、デフォルトでは何も表示されません。なのでchild内で、Textを組み込むことでその言葉を表示することで、ボタンらしくなります。
+
+### アイコンの表示
+
+ではchildのウイジェット部分にText以外に何を入れればボタンらしくなるか、アイコンなどを試しに入れてみます。
+
+>TextButton(  
+>  onPressed:buttonPressed,  
+>  child: Padding(  
+>    padding: EdgeInsets.all(10.0),  
+>    child:Icon (  
+>      Icons.android,  
+>      size: 50.0,  
+>    )  
+>  )  
+>)  
+
+このコードによって実行すると、ボタンの部分に言葉Textではなく、androidのアイコンが表示されるようになりました。ここでは、TextButton内にPaddingを組み込み、さらにその中にIconインスタンスを組み込んでいます。
+
+### buttonPressed メソッドについて
+クリックしたときの処理については次のような例があります。
+
+>void buttonPressed(){  
+>   setState((){  
+>       _message = (_janken..shuffle()).first;  
+>    });  
+>}
+
+これは教科書で、ボタンを押したら_messageに表示されているものが、_jankenの中のいくつかの単語に変わるというものを例で挙げています。まだ試せてはいませんが、buttonPressedを使うことで、他にも色んな事ができそうだと感じました。
+
+## Padding
+Paddingとは**余白**を作成する、表示させるためのコンテナです。
+基本余白の機能がないウィジェットで余白設定したいときに使います。
+
+## ElevatedButton・IconButton について
+つぎにTextButtonと同じ働きをし、表示方法が少し違うものを軽く書いておきます。
+
+- Elebatedbutton
+
+「ボタンが**立体的**に表示されます。」
+
+- IconButton
+
+「その名の通りアイコンをクリックできるよう表示されます。」
+
 
 
 

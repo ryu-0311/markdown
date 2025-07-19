@@ -1022,6 +1022,34 @@ FloatingActionButton(
 こうすることで普通のボタンとしても機能しますが、やはり右下にある方が一番利用しやすいことがわかりました。
 
 ## RawMaterialButtonについて
+サンプルソースコード
+~~~
+RawMaterialButton(
+  fillColor: Colors.white,
+  elevation: 10.0,
+  padding: EdgeInsets.all(10.0),
+  child: Text(
+      "Push me!",
+      style: TextStyle(fontSize:32.0,
+      color: const Color(0xff000000),
+      fontWeight: FontWeight.w400,
+      fontFamily: "Roboto"),
+    ),
+  onPressed: buttonPressed
+),
+
+~~~
+実行すると横長の白いボタンが表示されます。これがRawMaterialButtonです。クリックすればちゃんとbuttonPressedメソッドの処理が実行される。
+
+ここでは、fillColorとelevation:という値が用意されています。RawMaterialButtonには他にもひょうじに関する値が用意されています。
+
+| fillcolor | highlightcolor | splashcolor | elevation | highlightElevation 
+| --- | --- | --- | --- | --- |
+背景色　| クリックしてハイライトした時の色　| クリックされたことをあらわす効果として使われる色　|　ボタンの高さ（影の幅） | クリックしたときのボタンの高さ　|
+
+
+ 
+
 
 
 

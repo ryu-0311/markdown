@@ -1167,8 +1167,88 @@ void textChanged(String val){
   ~~~
 
   引数にString値が用意されています。
+これが、変更されたウィジェットのテキストになります。その中では、  onPressedの場合と同様に、setStateが用意されています。StatefulWidgetのステートを操作する場合は、常にsetStateを使います。これはイベントの種類や操作するウィジェットが変わっても同じです。ここでは、toUpperCaseメソッドで引数valのテキストをすべて大文字にしてメッセージに設定してあります。
 
- 
+#### |Checkboxについて
+ON OFFといった二者択一の値を入力するのに用いられるが「チェックボックス」です。これは「Checkbox」というクラスとして用意されています。
+
+#### Checkboxの利用例
+~~~
+class _MyHomePageState extends State<MyHomePage> {
+  static var _message = 'ok.';
+  static var _checked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('App Name'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                _message,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto"),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Checkbox(
+                      value:_checked,
+                      onChanged: checkChanged,
+                    ),
+                    Text(
+                      "Checkbox",
+                      style: TextStyle(fontSize:28.0,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "Roboto"),
+                    )
+                  ]
+              )
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void checkChanged(bool? value){
+    setState(() {
+      _checked = value!;
+      _message = value ? 'checked!' : 'not checked...';
+    });
+  }
+
+}
+
+
+~~~
+
+このコードを実行すると、チェックボックスが１つだけ表示されます。このチェックボックス部分をクリックするとチェックがON/OFFされます。同時に、チェックボックスの上に「checked!」「notchecked...」といったテキストが表示されます。
+##### |Checkboxの基本
+では、checkboxインスタンスを作成している部分を見てみましょう。
+~~~
+Checkbox(
+   value:<<bool>>,
+  onChanged: 関数,
+),
+~~~
+
+ valueは、チェックの状態を示すもので、bool値で指定をします。trueならばON,falseならばOFFになります。onChangedは、チェック状態が変更された際に発生するイベントの処理を指定するためのものです。
 
 
 

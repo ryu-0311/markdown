@@ -1051,6 +1051,122 @@ RawMaterialButton(
 
 # 3-2 入力のためのUI
 
+## Text Field について
+「Text Field」は、テキストを入力するUIウィジェットです。例えを上げるとすると、ネット上での自由記入欄的なものを作れるものです。初めに例のコードををclass MyhomePageStateから
+
+例
+~~~
+class _MyHomePageState extends State<MyHomePage> {
+  static var _message = 'ok.';
+  static final _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('App Name'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                _message,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto"),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: TextField(
+                controller: _controller,
+                style: TextStyle(
+                  fontSize: 28.0,
+                  color: const Color(0xffFF0000),
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto"),
+              ),
+            ),
+            ElevatedButton(
+                child: Text(
+                  "Push me!",
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    color: const Color(0xff000000),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Roboto"),
+                ),
+                onPressed: buttonPressed),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void buttonPressed() {
+    setState(() {
+      _message = 'you said: ' + _controller.text;
+    });
+  }
+}
+
+~~~
+
+このコードを実行をすると、テキストを入力できる部分とボタンが表示されます。
+
+## TextField Controllerについて
+では、TextFieldの作成部分を見てみます。ここではColumnの中にTextやElevatedButtonとともにTextFieldを追加している。
+~~~
+TextField(
+    controller:<<TextEditingController>>,
+    style:<<TextStyle>>
+ )   
+ ~~~
+
+ styleはテキストスタイル設定と前の段階で学んだのでわかります。問題は「Controller」という値。これは「Controller(コントローラー)」と呼ばれるものを設定するためのものです。
+
+ ### controller は値を管理するクラス
+ Controllerはウイジェットの値を管理するための専用のクラスです。TextFieldのような入力を行うウィジェットは、自身の中に値を保管するプロパティのようなものを持っているわけではないのです。値を管理するための「Controller」というクラスを組み込み、これで値を管理します。
+
+  Controllerは、 _controllerというフィールドとして用意します。TextFieldでは、TextEditingControllerというクラスが用意されており、このインスタンスをcontrollerに組み込む。
+
+  ~~~
+static final _controller = TextEditingController();
+  ~~~
+TextEditingControllerは、引数なしでインスタンスを作成します。このTextEditingControllerには「text」というプロパティが用意されており、これがウィジェットに入力されたテキストとなります。このtextプロパティの値を読み書きすることで、textEditingControllerを組み込んだウィジェットのテキストを扱うことができます。
+
+buttonPressedメソッドのsetStateでは、以下のような値を利用する。
+~~~
+_message = 'you said:' + _controller.text;
+~~~
+ _controller.textで、入力したテキストを取り出し、それを利用して_messageにテキストを設定しているわけである。UIウィジェットを使うには、そのControllerを利用する、というのが基本的考え方。
+
+
+ ### onChanged イベントの利用
+ ここでは、ボタンをクリックしたときのonPressedイベントによる処理でテキストを表示しました。
+ 「onChanged」これは、テキストが修正されると発生するイベントです。これを利用することで、テキストを編集している間、リアルタイムに入力値を利用した処理を行わせることもできます。
+
+ #### | onChangedメソッドの定義
+  TextFieldインスタンスを作成している部分を見てみると、以下のようにしてonChangedイベントの設定がされているのかがわかります。
+
+  > onChanged: textChanged,
+
+  ここでは、textChangedというメソッドが指定されています。このメソッドの定義は、クラス定義の一番最後に以下のように用意されています。
+
+  ~~~
+void textChanged(String val){
+  setState((){
+        _message = val.toUpperCase();
+});
+  ~~~
+
+  引数にString値が用意されています。
 
  
 

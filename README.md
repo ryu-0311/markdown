@@ -1248,7 +1248,19 @@ Checkbox(
 ),
 ~~~
 
- valueは、チェックの状態を示すもので、bool値で指定をします。trueならばON,falseならばOFFになります。onChangedは、チェック状態が変更された際に発生するイベントの処理を指定するためのものです。ここに
+ valueは、チェックの状態を示すもので、bool値で指定をします。trueならばON,falseならばOFFになります。onChangedは、チェック状態が変更された際に発生するイベントの処理を指定するためのものです。ここにメソッドを指定すれば、チェックボックスを操作した際に処理を自動的に呼び出すことができる。
+
+ ~~~
+void checkChanged(bool? value){
+   setState(() {
+     _checked = value!;
+     _message = value ? 'checked!' : 'not checked...';
+   } );
+}
+ ~~~
+
+ 引数にはbool値が１つ渡されています。これは、現在のチェックの状態を表す値です。その中では、setStateで_checkedと_messageの値を変更している。これで、checkboxのチェック状態とTextのメッセージ変更
+
 
 
 

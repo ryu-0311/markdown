@@ -1259,7 +1259,138 @@ void checkChanged(bool? value){
 }
  ~~~
 
- 引数にはbool値が１つ渡されています。これは、現在のチェックの状態を表す値です。その中では、setStateで_checkedと_messageの値を変更している。これで、checkboxのチェック状態とTextのメッセージ変更
+ 引数にはbool値が１つ渡されています。これは、現在のチェックの状態を表す値です。その中では、setStateで_checkedと_messageの値を変更している。これで、checkboxのチェック状態とTextのメッセージ変更される。
+ 　_checkedの変更が一番重要です。ここではCheckboxを作る際、value:_checkedというようにvalueに_checkedを代入している。それにより、setStateを変更すれば、valueの値が変わり、チェック状態も変更される。
+
+ ## Switchについて
+ このウィジェットもCheckbox同様、ON OFFをクリックで決めるものです。基本はCheckboxと同じで、自分ではあまりつかわないと判断したので利用例は省きます。
+
+ ## Radio　Radioの利用例　について
+ 複数の項目から１つを選ぶものです。
+
+ ・Radioの利用例
+ ~~~
+class _MyHomePageState extends State<MyHomePage> {
+  static var _message = 'ok.';
+  static var _selected = 'A';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('App Name'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                _message,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto"),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(10.0),
+            ),
+
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+
+                  Radio<String>(
+                    value: 'A',
+                    groupValue: _selected,
+                    onChanged: checkChanged,
+                  ),
+                  Text(
+                    "radio A",
+                    style: TextStyle(fontSize:28.0,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "Roboto"),
+                  )
+                ]
+            ),
+
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+
+                  Radio<String>(
+                    value: 'B',
+                    groupValue: _selected,
+                    onChanged: checkChanged,
+                  ),
+                  Text(
+                    "radio B",
+                    style: TextStyle(fontSize:28.0,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "Roboto"),
+                  )
+                ]
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void checkChanged(String? value){
+    setState(() {
+      _selected = value ?? 'nodata';
+      _message = 'select: $_selected';
+    });
+  }
+}
+
+
+ ~~~
+
+ このコードを実行すると、２つのラジオボタンが表示されます。ボタンをクリックすると、そのボタンが選択され、上に「select:○○」と選択したボタン名が表示される。
+
+ ### |Radioの仕組み
+
+ ~~~
+Radio<型>(
+   value: 値,
+   groupValue: 値,
+  onChanged:...メソッド...,
+)
+ ~~~
+
+Radioで重要となるのは**型**です。Radioを、使う時最初に考えるものが「どんな値を、各ボタンの値として利用するか」。
+
+Radioにはvalueプロパティがあり、これで各Radio固有の値を設定される。この値はどんなものでも入れられます。ただし、「これを使う」となったら、そのRadioを含むグループのすべてのRadioで同じ型をvalueとして使わなければいけない。
+
+例えば、ここではStringの値をvalueとして使っています。Radio作成部分をみるとこんな感じです。
+~~~
+Radio<String>(
+    value:'A',
+    groupValue: _selected,
+    onChanged: checkChanged,
+),
+~~~
+Stringを値として利用するため、 Radio<String>(...)という形でインスタンスを作成しています。valueには、各Radioごとに固有の値を設定しておく。
+
+### |gourpValueとは？
+　　
+その後の「***groupValue***」は、グループで選択された値を示します。例えば、ここではvalue:'A'と、value:'B'のRadioが用意されています。value:'A'のRadioが選択されていたなら、groupValueの値は'A'となります。そしてvalue:'B'のRadioが選択されたなら、groupValueは'B'。
+
+　ここでは、_selectedというString型のフィールドを用意し、これをgroupValueに設定しています。これで、Radioをクリックして選択したとき、_selectedの値をクリックしたRadioのvalueに変更すれば、そのRadioが選択された状態に変わる、というわけです。
+
+選択状態が変更されると、onChangedイベントが発生します。
+
 
 
 

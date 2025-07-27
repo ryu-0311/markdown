@@ -1389,7 +1389,36 @@ Stringを値として利用するため、 Radio<String>(...)という形でイ�
 
 　ここでは、_selectedというString型のフィールドを用意し、これをgroupValueに設定しています。これで、Radioをクリックして選択したとき、_selectedの値をクリックしたRadioのvalueに変更すれば、そのRadioが選択された状態に変わる、というわけです。
 
-選択状態が変更されると、onChangedイベントが発生します。ここでは、onChanged:cehckChangedとしてcheckChangedメソッドが設定されています。
+選択状態が変更されると、onChangedイベントが発生します。ここでは、onChanged:cehckChangedとしてcheckChangedメソッドが設定されています。このメソッドの処理はいかのようになっている。
+~~~
+void checkChanged(String? value){
+    setState(() {
+      _selected = value ?? 'nodata';
+      _message = 'select $_selected';
+  });
+}
+~~~
+ 引数にはString値が渡されている。これが、選択されたRadioのvalueです。この値を、groupValueに設定してある_selectedに代入することで、そのRadioが選択された状態と認識される。
+
+ ## DropdownButtonについて
+ 　ラジオボタンのように複数の項目から一つ選ぶようなUIと同じです。このボタンはクリックするとメニューが現れ、そこから項目を選ぶとそれが表示される、というものです。
+
+ ### | DropdownButtonの基本形
+まずは基本形を整理します
+~~~
+DropdownButton<型>(
+    onChanged: 関数,
+    value:　値,
+    style:<<TextStyle>>,
+    items:[<<DropdownMwnuItem>>,...]
+)
+~~~
+onChangedは、値が変更されたときのイベント処理。valueは、選択された値です。そしてitemsには、表示する項目の情報をまとめておく。
+
+このDrokpdownButtonも、先ほどのRadioと同様に「どんな型を値として利用するか」を考えて設計する必要があります。インスタンスは、DropdownButton<型>(...)というように、型を指定して作成します。valueはこの型の値になる。
+
+
+
 
 
 

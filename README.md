@@ -1423,8 +1423,12 @@ DropdownMenuItem<型>(value:　値, child: ウィジェット)
 ~~~
 
 
-引数には、valueでそのDropdownMenuItemの値を指定します。これは<型>で指定された型の値でなければならない。
+引数には、valueでそのDropdownMenuItemの値を指定します。これは<型>で指定された型の値でなければならない。childには、このメニュー項目内に組み込まれるウィジェットを指定します。通常はTextを使い、メニュー項目に表示されるテキストを指定する。
 
+onChangedの部分は基本変わりません。
+
+## PopupMenuButton
+ DropdownButtonと似たようなもの「PopupMenuButton」というものもある。これはポップアップメニューを呼び出すための専用ボタンです。どんなものかというと、一般のアプリでは画面の右上あたりにある３つの点のやつです。
 
 
 

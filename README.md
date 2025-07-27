@@ -1389,7 +1389,8 @@ Stringを値として利用するため、 Radio<String>(...)という形でイ�
 
 　ここでは、_selectedというString型のフィールドを用意し、これをgroupValueに設定しています。これで、Radioをクリックして選択したとき、_selectedの値をクリックしたRadioのvalueに変更すれば、そのRadioが選択された状態に変わる、というわけです。
 
-選択状態が変更されると、onChangedイベントが発生します。
+選択状態が変更されると、onChangedイベントが発生します。ここでは、onChanged:cehckChangedとしてcheckChangedメソッドが設定されています。
+
 
 
 

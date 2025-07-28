@@ -1493,11 +1493,29 @@ showDialog(
     builder:<<WidgetBuilder>>
 )
 ~~~
-contextには、***BuildContext***
+contextには、***BuildContext***インスタンスを指定します。このBuildContext、前にも一度登場しています。なので利用例はあげず、基本に移ります。
 
+### showDialogの基本
+まずはコードの確認。ここでは、ボタンをクリックしたときに呼び出されるbuttonPressedメソッドの中でshowDialogを呼び出している。
+~~~
+showDialog(
+   context: context,
+    builder: (BuildContext context) => AlertDialog(...),
+)
+~~~
+contextは、contextをそのまま指定しています。これはStateクラスに用意されているプロパティです。Stateクラスはウィジェットの状態を扱うためのものなので、これ単体で存在することはないです。必ず、何らかのウィジェットに関連付けられる。
 
+　関連付けられたウィジェット（BuildContext = ウィジェットツリーにおけるウィジェットのハンドル）を保管しているのがcontextプロパティです。このStateにあるcontextをそのままshowDialogのcontextに代入すれば、このウィジェット上にアラートを表示することができます。
 
-
+### AlertDialogについて
+もう１つのbuilderには、「AlertDialog」というクラスを用意している。これは以下のような形でインスタンスを作成します。
+~~~
+AlertDialog(
+   title: ウィジェット,
+    content: ウィジェット
+)
+~~~
+タイトルとコンテンツとして表示するウィジェットをそれぞれtitleとcontentに指定する。これをshowDialogで表示させればいいのです。
 
 
 

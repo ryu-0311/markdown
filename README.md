@@ -1430,6 +1430,37 @@ onChangedの部分は基本変わりません。
 ## PopupMenuButton
  DropdownButtonと似たようなもの「PopupMenuButton」というものもある。これはポップアップメニューを呼び出すための専用ボタンです。どんなものかというと、一般のアプリでは画面の右上あたりにある３つの点のやつです。
 
+ 利用例
+ ~~~
+Align(alignment: Alignment.centerRight,
+  child: PopupMenuButton(
+    onSelected: (String value)=> popupSelected(value),
+    itemBuilder: (BuildContext context) =>
+    <PopupMenuEntry<String>>[
+      const PopupMenuItem( child: const Text("One"), value: "One",),
+      const PopupMenuItem( child: const Text("Two"), value: "Two",),
+      const PopupMenuItem( child: const Text("Three"), value: "Three",),
+    ],
+  ),
+),
+ ~~~
+
+実行すると、画面上部のテキストの右下あたりに「３つの点」マークが表示されます。これをクリックすると、メニューがポップアップして現れます。ここからメニュー項目を選ぶと、選んだメニューの値がメッセージとして表示されます。
+
+ここではonSelectedに先のサンプルと全く同じでpopupSelectedメソッドを割り当てています。メソッドはそのままで変更していないのでDropdownButtonがそのままPopupMenuButtonに置き換わっただけで、同じ処理を実行しています。
+ 
+ ### |PopupMenuEntryとPopupMenultem
+ ここでは、「itemBuilder」というものにメニュー項目の情報がまとめられている。いかのようになっている。
+ ~~~
+itemBuilder:(BuildContext context) =><PopupMenuEntry<型>>[...]
+ ~~~
+
+ ***BuildContext***というクラスのインスタンスを引数として渡す形で、***PopupMenuEntry***のリストを用意しています。BuildContextはウィジェット類のベースとなっているクラスである。このリストでは、PopupMenuEntryにはPopupMenultemというPopupMenuEntryのサブクラスを使っている。
+ ~~~
+const PopupMenuItem( child: ウィジェット, value: 値,),
+ ~~~
+ このように、valiueにこのPopuMenuItemの値を、そしてChildにはメニュー項目内に表示するウィジェット（通常はText）を用意します。このあたりの使い方は、DropdownMenuItem
+
 
 
 

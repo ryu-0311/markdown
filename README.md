@@ -1462,13 +1462,19 @@ const PopupMenuItem( child: ウィジェット, value: 値,),
  このように、valiueにこのPopuMenuItemの値を、そしてChildにはメニュー項目内に表示するウィジェット（通常はText）を用意します。このあたりの使い方は、DropdownMenuItemとほとんど同じです。クラス名が異なるだけです。
 
  ## Slider
- 数値をアナログ的に入力するのに用いられるものです。
+ 数値をアナログ的に入力するのに用いられるものです。ドラックして動かすノブがあり、それを左右にスライドして値を決めるものです。
 
-
-
-
-
-
+ ###  |　Sliderの基本形
+ Sliderは多くのプロパティを持っています。しかし、一般的に利用されるプロパティはそう多くはないです。整理すると以下のようになります。
+ ~~~
+Slider(
+   onChanged:関数,
+   min:<<double>>,
+   max:<<double>>,
+   divisions:<<int>>,
+   value:<<double>>,
+   ),
+ ~~~
 
 
 

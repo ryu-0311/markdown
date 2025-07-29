@@ -1535,7 +1535,50 @@ showDialog(...).then<void>(...処理...)
 
 このように、showDialogのあとに「then」というメソッドを用意し、そこに実行する処理を用意する。「then」は、showDialogのコールバック関数を指定するものです。showDialogは非同期に実行されるメソッドになる。このためアラートダイアログを閉じた後の処理はコールバック関数として用意しなければいけない。
 
-「then」はそれをシンプルに実装できるメソッドになります。
+**「then」はそれをシンプルに実装できるメソッドになります。**
+
+### アラートのボタンを利用する
+
+~~~
+void buttonPressed(){
+  showDialog(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: Text("Hello!"),
+      content: const Text("This is sample."),
+      actions: <Widget>[
+        TextButton(
+            child: const Text('Cancel'),
+            onPressed: () => Navigator.pop<String>(context, 'Cancel')
+        ),
+        TextButton(
+            child: const Text('OK'),
+            onPressed: () => Navigator.pop<String>(context, 'OK')
+        )
+      ],
+    ),
+  ).then<void>((value) => resultAlert(value));
+}
+
+void resultAlert(String value) {
+  setState((){
+    _message = 'selected: $value';
+  });
+}
+
+~~~
+このコードをshowDialogと合わせると、アプリのボタンをクリックすると、画面にアラートが表示される。そしてメッセージの下に「Cancel」「OK」という２つのボタンが表示されます。これらのボタンを押すとアラートは消え、「selected:○○」と選択したボタンがメッセージとして表示されます。
+
+#### |actionsのボタンについて
+
+showDialogのactionsにWidgetリストを用意し、その赤にTextButtonを２つ用意しています。これが、ボタンとして表示されたものになります。それぞれのTextButtonで、クリックした際の処理を以下のように用意している。
+~~~
+onPressed:　( ) => Navigator.pop<String>(context,'Cancel')
+~~~
+
+Navigator.popは、表示されているアラートダイアログを消す働きがあります。これはContextと、アラートを閉じる際に送られる値を引数に指定しています。この値は、どんなものでもいいですが、あらかじめ「どういう型の値か」を決めてコーディングする必要がある。
+　　
+### thenによるアラート後の処理
 
 
 
